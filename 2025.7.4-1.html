@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undertale & Deltarune 传说之下与三角符文</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        /* 像素风格容器 */
+        .pixel-box {
+            border: 4px solid #fff;
+            background-color: #222;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 1000px;
+            position: relative;
+        }
+        
+        /* 导航栏 */
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            border-bottom: 4px solid #fff;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px 10px;
+            border: 2px solid transparent;
+        }
+        
+        nav a:hover {
+            border: 2px solid #fff;
+            background-color: #555;
+        }
+        
+        /* 标题样式 */
+        h1, h2, h3 {
+            color: #f8f8f8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #ff6b6b;
+            font-size: 36px;
+            text-shadow: 3px 3px 0 #000;
+        }
+        
+        h2 {
+            color: #6bff6b;
+            font-size: 28px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 10px;
+        }
+        
+        /* 游戏专区切换 */
+        .game-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .game-tab {
+            padding: 10px 20px;
+            background-color: #444;
+            cursor: pointer;
+            border: 2px solid #fff;
+            margin: 0 5px;
+        }
+        
+        .game-tab.active {
+            background-color: #ff6b6b;
+        }
+        
+        .game-content {
+            display: none;
+        }
+        
+        .game-content.active {
+            display: block;
+        }
+        
+        /* 角色卡片 */
+        .character-card {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            vertical-align: top;
+            border: 3px solid #fff;
+            padding: 10px;
+            background-color: #333;
+        }
+        
+        .character-card img {
+            width: 100%;
+            border: 2px solid #fff;
+        }
+        
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            border-top: 4px solid #fff;
+            margin-top: 20px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .character-card {
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#undertale">Undertale</a></li>
+            <li><a href="#deltarune">Deltarune</a></li>
+            <li><a href="#community">社区</a></li>
+            <li><a href="#resources">资源</a></li>
+        </ul>
+    </nav>
+    
+    <!-- 首页 -->
+    <div class="pixel-box" id="home">
+        <h1>Undertale & Deltarune 传说之下与三角符文</h1>
+        <p>欢迎来到 Toby Fox 游戏系列的粉丝网站！这里汇集了两款游戏的相关信息、角色资料和粉丝创作。</p>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <img src="https://via.placeholder.com/800x300/333/fff?text=Undertale+%26+Deltarune+Banner" alt="游戏横幅" style="max-width: 100%; border: 4px solid #fff;">
+        </div>
+        
+        <h2>最新动态</h2>
+        <div class="news-item">
+            <h3>Deltarune 第三章开发进展</h3>
+            <p>Toby Fox 在最近的更新中分享了第三章的一些音乐片段...</p>
+        </div>
+        <div class="news-item">
+            <h3>Undertale 周年纪念活动</h3>
+            <p>庆祝 Undertale 发售8周年，粉丝创作大赛正在进行中...</p>
+        </div>
+    </div>
+    
+    <!-- Undertale 专区 -->
+    <div class="pixel-box" id="undertale">
+        <h2>UNDERTALE 传说之下</h2>
+        
+        <div class="game-tabs">
+            <div class="game-tab active" onclick="showTab('ut-about')">游戏介绍</div>
+            <div class="game-tab" onclick="showTab('ut-characters')">角色图鉴</div>
+            <div class="game-tab" onclick="showTab('ut-music')">音乐欣赏</div>
+        </div>
+        
+        <div id="ut-about" class="game-content active">
+            <h3>关于 Undertale</h3>
+            <p>Undertale 是一款由 Toby Fox 开发的角色扮演游戏，于2015年发布。游戏讲述了一个人类掉入地下怪物世界的故事，玩家的选择将决定游戏的结局。</p>
+            <p>游戏特色：</p>
+            <ul>
+                <li>独特的战斗系统 - 结合弹幕躲避和对话选择</li>
+                <li>多重结局 - 和平、中立和屠杀路线</li>
+                <li>难忘的角色和深刻的故事</li>
+                <li>荣获多项大奖的原创音乐</li>
+            </ul>
+        </div>
+        
+        <div id="ut-characters" class="game-content">
+            <h3>主要角色</h3>
+            
+            <div class="character-card">
+                <img src="https://via.placeholder.com/200x200/333/fff?text=Frisk" alt="Frisk">
+                <h4>Frisk</h4>
+                <p>游戏的主角，掉入地下世界的人类孩子。</p>
+            </div>
+            
+            <div class="character-card">
+                <img src="https://via.placeholder.com/200x200/333/fff?text=Sans" alt="Sans">
+                <h4>Sans</h4>
+                <p>喜欢讲笑话的骷髅，看似懒散实则...</p>
+            </div>
+            
+            <div class="character-card">
+                <img src="https://via.placeholder.com/200x200/333/fff?text=Toriel" alt="Toriel">
+                <h4>Toriel</h4>
+                <p>慈爱的山羊怪物，在地下世界照顾迷路的孩子。</p>
+            </div>
+            
+            <!-- 可以添加更多角色 -->
+        </div>
+        
+        <div id="ut-music" class="game-content">
+            <h3>原声音乐</h3>
+            <p>Undertale 的音乐由 Toby Fox 亲自创作，深受玩家喜爱。</p>
+            
+            <div style="margin: 20px 0;">
+                <h4>Megalovania</h4>
+                <audio controls style="width: 100%;">
+                    <source src="#" type="audio/mpeg">
+                    您的浏览器不支持音频元素。
+                </audio>
+                <p>最著名的战斗主题曲之一，与 Sans 的战斗中使用。</p>
+            </div>
+            
+            <div style="margin: 20px 0;">
+                <h4>Hopes and Dreams</h4>
+                <audio controls style="width: 100%;">
+                    <source src="#" type="audio/mpeg">
+                    您的浏览器不支持音频元素。
+                </audio>
+                <p>和平路线最终战斗的主题曲。</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Deltarune 专区 -->
+    <div class="pixel-box" id="deltarune">
+        <h2>DELTARUNE 三角符文</h2>
+        
+        <div class="game-tabs">
+            <div class="game-tab active" onclick="showTab('dr-about')">章节介绍</div>
+            <div class="game-tab" onclick="showTab('dr-characters')">新角色</div>
+            <div class="game-tab" onclick="showTab('dr-gameplay')">游戏机制</div>
+        </div>
+        
+        <div id="dr-about" class="game-content active">
+            <h3>关于 Deltarune</h3>
+            <p>Deltarune 是 Toby Fox 开发的另一款角色扮演游戏，被视为 Undertale 的精神续作。游戏计划发布7个章节，目前第1-2章已发布。</p>
+            
+            <h4>第一章</h4>
+            <p>Kris 和 Susie 被带入黑暗世界，遇见了 Ralsei...</p>
+            
+            <h4>第二章</h4>
+            <p>团队前往赛博世界，面对新的威胁和谜题...</p>
+        </div>
+        
+        <div id="dr-characters" class="game-content">
+            <h3>新角色</h3>
+            
+            <div class="character-card">
+                <img src="https://via.placeholder.com/200x200/333/fff?text=Kris" alt="Kris">
+                <h4>Kris</h4>
+                <p>人类主角，沉默寡言但行动力强。</p>
+            </div>
+            
+            <div class="character-card">
+                <img src="https://via.placeholder.com/200x200/333/fff?text=Susie" alt="Susie">
+                <h4>Susie</h4>
+                <p>紫色恐龙怪物，最初粗暴但逐渐展现温柔一面。</p>
+            </div>
+            
+            <div class="character-card">
+                <img src="https://via.placeholder.com/200x200/333/fff?text=Ralsei" alt="Ralsei">
+                <h4>Ralsei</h4>
+                <p>温柔的黑暗王子，总是戴着帽子。</p>
+            </div>
+        </div>
+        
+        <div id="dr-gameplay" class="game-content">
+            <h3>游戏机制</h3>
+            <p>Deltarune 在 Undertale 的基础上进行了多项改进：</p>
+            <ul>
+                <li>团队战斗系统 - 控制多个角色</li>
+                <li>TP (团队点数) 系统 - 积累点数释放特殊能力</li>
+                <li>更复杂的弹幕躲避机制</li>
+                <li>3D 视角的迷宫探索</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- 社区互动 -->
+    <div class="pixel-box" id="community">
+        <h2>社区互动</h2>
+        
+        <div class="game-tabs">
+            <div class="game-tab active" onclick="showTab('com-gallery')">粉丝画廊</div>
+            <div class="game-tab" onclick="showTab('com-forum')">论坛讨论</div>
+            <div class="game-tab" onclick="showTab('com-events')">活动日历</div>
+        </div>
+        
+        <div id="com-gallery" class="game-content active">
+            <h3>粉丝创作</h3>
+            <p>展示来自社区的优秀作品：</p>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+                <img src="https://via.placeholder.com/200x200/333/fff?text=Fan+Art+1" alt="粉丝作品1" style="margin: 10px; border: 2px solid #fff;">
+                <img src="https://via.placeholder.com/200x200/333/fff?text=Fan+Art+2" alt="粉丝作品2" style="margin: 10px; border: 2px solid #fff;">
+                <img src="https://via.placeholder.com/200x200/333/fff?text=Cosplay+1" alt="Cosplay1" style="margin: 10px; border: 2px solid #fff;">
+                <!-- 可以添加更多图片 -->
+            </div>
+        </div>
+        
+        <div id="com-forum" class="game-content">
+            <h3>热门讨论</h3>
+            <div style="margin: 15px 0; padding: 10px; background-color: #333;">
+                <h4>关于 Gaster 的理论</h4>
+                <p>用户: MysteryMan - 发布于 2023-05-15</p>
+                <p>我发现游戏中隐藏的线索表明 Gaster 可能...</p>
+            </div>
+            
+            <div style="margin: 15px 0; padding: 10px; background-color: #333;">
+                <h4>如何解锁秘密 boss</h4>
+                <p>用户: SecretHunter - 发布于 2023-05-10</p>
+                <p>分享我发现的一个隐藏 boss 触发方法...</p>
+            </div>
+        </div>
+        
+        <div id="com-events" class="game-content">
+            <h3>近期活动</h3>
+            <div style="margin: 15px 0; padding: 10px; background-color: #333;">
+                <h4>Undertale 周年纪念</h4>
+                <p>日期: 2023-09-15</p>
+                <p>庆祝 Undertale 发售8周年，线上粉丝聚会...</p>
+            </div>
+            
+            <div style="margin: 15px 0; padding: 10px; background-color: #333;">
+                <h4>Deltarune 第二章速通比赛</h4>
+                <p>日期: 2023-06-20</p>
+                <p>参与我们的速通比赛，赢取官方周边...</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 资源下载 -->
+    <div class="pixel-box" id="resources">
+        <h2>资源下载</h2>
+        
+        <div style="margin: 20px 0;">
+            <h3>官方壁纸</h3>
+            <p>来自游戏的官方壁纸合集：</p>
+            <button style="padding: 8px 15px; background-color: #444; color: #fff; border: 2px solid #fff; margin: 5px;">Undertale 壁纸包</button>
+            <button style="padding: 8px 15px; background-color: #444; color: #fff; border: 2px solid #fff; margin: 5px;">Deltarune 壁纸包</button>
+        </div>
+        
+        <div style="margin: 20px 0;">
+            <h3>同人创作工具</h3>
+            <p>用于创作 Undertale/Deltarune 同人作品的资源：</p>
+            <button style="padding: 8px 15px; background-color: #444; color: #fff; border: 2px solid #fff; margin: 5px;">像素艺术模板</button>
+            <button style="padding: 8px 15px; background-color: #444; color: #fff; border: 2px solid #fff; margin: 5px;">字体包</button>
+            <button style="padding: 8px 15px; background-color: #444; color: #fff; border: 2px solid #fff; margin: 5px;">音效集</button>
+        </div>
+    </div>
+    
+    <!-- 页脚 -->
+    <footer>
+        <p>© 2023 Undertale & Deltarune 粉丝网站 | 非官方网站 | 所有游戏版权归 Toby Fox 所有</p>
+        <p>本网站仅用于粉丝交流和学习目的</p>
+    </footer>
+    
+    <script>
+        // 简单的标签页切换功能
+        function showTab(tabId) {
+            // 获取所有内容区域
+            const contents = document.querySelectorAll('.game-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // 激活选中的内容区域
+            document.getElementById(tabId).classList.add('active');
+            
+            // 更新标签按钮状态
+            const tabs = document.querySelectorAll('.game-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            event.target.classList.add('active');
+        }
+        
+        // 简单的导航滚动效果
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // 添加一些游戏风格的音效 (需要实际音效文件)
+        document.querySelectorAll('button, .game-tab, nav a').forEach(element => {
+            element.addEventListener('click', function() {
+                // 这里可以添加点击音效
+                // new Audio('sounds/click.wav').play();
+            });
+        });
+    </script>
+</body>
+</html>
