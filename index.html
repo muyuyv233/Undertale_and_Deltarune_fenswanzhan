@@ -285,29 +285,41 @@
             <!-- 可以添加更多角色 -->
         </div>
         
-        <div id="ut-music" class="game-content">
-            <h3>原声音乐</h3>
-            <p>Undertale 的音乐由 Toby Fox 亲自创作，深受玩家喜爱。</p>
-            
-            <div style="margin: 20px 0;">
-                <h4>Megalovania</h4>
-                <audio controls style="width: 100%;">
-                    <source src="#" type="audio/mpeg">
-                    您的浏览器不支持音频元素。
-                </audio>
-                <p>最著名的战斗主题曲之一，与 Sans 的战斗中使用。</p>
-            </div>
-            
-            <div style="margin: 20px 0;">
-                <h4>Hopes and Dreams</h4>
-                <audio controls style="width: 100%;">
-                    <source src="#" type="audio/mpeg">
-                    您的浏览器不支持音频元素。
-                </audio>
-                <p>和平路线最终战斗的主题曲。</p>
-            </div>
-        </div>
+<div id="ut-music" class="game-content">
+    <h3>原声音乐</h3>
+    <p>Undertale 的音乐由 Toby Fox 亲自创作，深受玩家喜爱。</p>
+    
+    <div class="music-track">
+        <h4>Megalovania</h4>
+        <audio controls style="width: 100%;">
+            <source src="music/megalovania.mp3" type="audio/mpeg">
+            您的浏览器不支持音频元素。
+        </audio>
+        <p>最著名的战斗主题曲之一，与 Sans 的战斗中使用。</p>
+        <button class="music-download">下载</button>
     </div>
+    
+    <div class="music-track">
+        <h4>Hopes and Dreams</h4>
+        <audio controls style="width: 100%;">
+            <source src="music/hopes_and_dreams.mp3" type="audio/mpeg">
+            您的浏览器不支持音频元素。
+        </audio>
+        <p>和平路线最终战斗的主题曲。</p>
+        <button class="music-download">下载</button>
+    </div>
+    
+    <!-- 可以添加更多音乐 -->
+    <div class="music-track">
+        <h4>Undertale</h4>
+        <audio controls style="width: 100%;">
+            <source src="music/undertale_theme.mp3" type="audio/mpeg">
+            您的浏览器不支持音频元素。
+        </audio>
+        <p>游戏主旋律，充满希望与冒险感。</p>
+        <button class="music-download">下载</button>
+    </div>
+</div>
     
     <!-- Deltarune 专区 -->
     <div class="pixel-box" id="deltarune">
