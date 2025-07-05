@@ -289,37 +289,116 @@
     <h3>原声音乐</h3>
     <p>Undertale 的音乐由 Toby Fox 亲自创作，深受玩家喜爱。</p>
     
+    <!-- Megalovania -->
     <div class="music-track">
         <h4>Megalovania</h4>
-        <audio controls style="width: 100%;">
+        <audio controls style="width: 100%; background: #1a1a1a;">
+            <!-- 优先使用OGG格式 -->
             <source src="music/megalovania.ogg" type="audio/ogg">
-            您的浏览器不支持音频元素。
+            <!-- 备用MP3格式 -->
+            <source src="music/megalovania.mp3" type="audio/mpeg">
+            您的浏览器不支持HTML5音频，请使用现代浏览器
         </audio>
         <p>最著名的战斗主题曲之一，与 Sans 的战斗中使用。</p>
-        <button class="music-download">下载</button>
+        <button class="music-download" 
+                data-ogg="music/megalovania.ogg" 
+                data-mp3="music/megalovania.mp3"
+                data-name="Megalovania">
+            下载
+        </button>
     </div>
     
+    <!-- Hopes and Dreams -->
     <div class="music-track">
         <h4>Hopes and Dreams</h4>
-        <audio controls style="width: 100%;">
+        <audio controls style="width: 100%; background: #1a1a1a;">
             <source src="music/hopes_and_dreams.ogg" type="audio/ogg">
-            您的浏览器不支持音频元素。
+            <source src="music/hopes_and_dreams.mp3" type="audio/mpeg">
+            您的浏览器不支持HTML5音频，请使用现代浏览器
         </audio>
         <p>和平路线最终战斗的主题曲。</p>
-        <button class="music-download">下载</button>
+        <button class="music-download"
+                data-ogg="music/hopes_and_dreams.ogg"
+                data-mp3="music/hopes_and_dreams.mp3"
+                data-name="Hopes and Dreams">
+            下载
+        </button>
     </div>
     
-    <!-- 可以添加更多音乐 -->
+    <!-- Undertale Theme -->
     <div class="music-track">
         <h4>Undertale</h4>
-        <audio controls style="width: 100%;">
+        <audio controls style="width: 100%; background: #1a1a1a;">
+            <source src="music/undertale_theme.ogg" type="audio/ogg">
             <source src="music/undertale_theme.mp3" type="audio/mpeg">
-            您的浏览器不支持音频元素。
+            您的浏览器不支持HTML5音频，请使用现代浏览器
         </audio>
         <p>游戏主旋律，充满希望与冒险感。</p>
-        <button class="music-download">下载</button>
+        <button class="music-download"
+                data-ogg="music/undertale_theme.ogg"
+                data-mp3="music/undertale_theme.mp3"
+                data-name="Undertale Theme">
+            下载
+        </button>
     </div>
 </div>
+
+<style>
+    /* 音乐播放器样式 */
+    .music-track {
+        background-color: #2a2a2a;
+        padding: 15px;
+        margin: 20px 0;
+        border: 2px solid #6bff6b;
+        border-radius: 5px;
+    }
+    
+    .music-track h4 {
+        color: #ff6b6b;
+        margin-bottom: 8px;
+    }
+    
+    /* 下载按钮样式 */
+    .music-download {
+        background-color: #444;
+        color: white;
+        border: 1px solid #fff;
+        padding: 5px 10px;
+        margin-top: 8px;
+        cursor: pointer;
+        font-family: 'Courier New', monospace;
+        transition: all 0.2s;
+    }
+    
+    .music-download:hover {
+        background-color: #ff6b6b;
+    }
+</style>
+
+<script>
+    // 智能下载功能（自动选择可用格式）
+    document.querySelectorAll('.music-download').forEach(button => {
+        button.addEventListener('click', function() {
+            // 检测浏览器支持的格式
+            const audio = document.createElement('audio');
+            const canPlayOGG = audio.canPlayType('audio/ogg').includes('maybe');
+            const format = canPlayOGG ? this.dataset.ogg : this.dataset.mp3;
+            const filename = this.dataset.name + (canPlayOGG ? '.ogg' : '.mp3');
+            
+            // 创建下载链接
+            const a = document.createElement('a');
+            a.href = format;
+            a.download = filename;
+            a.click();
+            
+            // 播放点击音效（如果有）
+            if(typeof sounds !== 'undefined' && sounds.click) {
+                sounds.click.currentTime = 0;
+                sounds.click.play();
+            }
+        });
+    });
+</script>
     
     <!-- Deltarune 专区 -->
     <div class="pixel-box" id="deltarune">
